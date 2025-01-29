@@ -7,9 +7,9 @@ Project Overview Diagram:
 ![alt text](image/Wordpress-project-Diagram.png)
 
 
-1. VPC SETUP
+**1. VPC SETUP**
 
-### Objective: Isolate and secure the WordPress infrastructure within a VPC.
+#### Objective: Isolating and securing the WordPress infrastructure within a VPC.
 
 Steps:
 
@@ -26,9 +26,9 @@ See image bellow show the VPC resource map for the internet connectivities:
 ![alt text](image/VPC-Resource-MAP.png)
 
 
-2. BASTION HOST SETUP
+**2. BASTION HOST SETUP**
 
-### Objective: Setting up a secure access point to SSH into private EC2 instances.
+#### Objective: Setting up a secure access point to SSH into private EC2 instances.
 
 Steps:
 
@@ -36,16 +36,16 @@ Steps:
 - Launching the Bastion Host in a public subnet using Amazon Linux 2 AMI.
 - SSH into the Bastion Host from a terminal to securely access private instances.
  
- The images below shows how the bastion host was login successfully and how the private instance was accessed securely.
+ The images below shows how the bastion host was login successfully and how the private instance was accessed securely:
 
 ![alt text](image/Bastion-host-successfully-created.png)
 
 ![alt text](image/Access-EC2-Via-Bastion.png)
 
 
-3. WORDPRESS EC2 INSTANCE SETUP
+**3. WORDPRESS EC2 INSTANCE SETUP**
 
-### Objective: Deploying WordPress on a private EC2 instance.
+#### Objective: Deploying WordPress on a private EC2 instance.
 
 - Creating a Security Group for WordPress allowing SSH, HTTP, and HTTPS access.
 - Launching the EC2 Instance for WordPress in the private subnet with the necessary security group.
@@ -55,9 +55,9 @@ Image shows how apached was installed on my wordpress EC2 instance:
 
 ![alt text](image/installing-appache-httpd.png)
 
-4. AWS EFS SETUP
+**4. AWS EFS SETUP**
 
-### Objective: Utilizing Amazon EFS for scalable and shared storage for WordPress files.
+#### Objective: Utilizing Amazon EFS for scalable and shared storage for WordPress files.
 
 Steps: 
 
@@ -71,9 +71,9 @@ Image below shows how the EFS was mounted to the Wordpress EC2 instance:
 ![alt text](image/Mounting-EFS..png)
 
 
-5. AWS RDS SETUP
+**5. AWS RDS SETUP**
 
-### Objective: Deploying a managed MySQL database using Amazon RDS for WordPress data storage.
+#### Objective: Deploying a managed MySQL database using Amazon RDS for WordPress data storage.
 
 Steps:
 
@@ -87,7 +87,7 @@ See below image:
 
 ![alt text](image/RDS-ACCESS-CREATE-DB-GRANT-FLUSH.png)
 
-6. CONNNECTING TO WORDPRESS TO RDS
+**6. CONNNECTING TO WORDPRESS TO RDS**
 
 Steps:
 
@@ -95,7 +95,7 @@ Steps:
 - Editing the wp-config.php file with the database details from the RDS instance (DB name, username, password, and host).
 - Saving the file and restarting the web service.
 
-7. SETTING UP A LOAD BALANCER (LB)
+**7. SETTING UP A LOAD BALANCER (LB)**
 
 Since the wordpress is in the private subnet, I wont be able to access it using the public ip of the instance, Hence the need for Load Balancer.
 Before setting up a load balancer, I will first create a Target Group which the Load Balancer will route traffic to, Our target group port wil be HTTP,
