@@ -106,3 +106,40 @@ After all this has been put in place, I was able to access the wordpress site th
 ![alt text](image/Wordpress.png)
 
 ![alt text](image/wordpress-DNS.png)
+
+
+**8. Setting up Auto Scaling Group.**
+
+Steps:
+
+-  Creating an AMI (Machine Image) from my EC2 instance where all resources are available, this will be use when creating a template.
+-  Create a Launch Template: The launch template specifies the configuration for my EC2 instances, including the Amazon Machine Image (AMI), instance   
+   type, key, security groups, and some other settings.
+-  Configuring the Auto Scaling Group: With the launch template available, Auto scaling group is created.
+-  Selecting the VPC and subnets where the instances will operate. For high availability, it's advised to choose subnets across multiple Zones.
+-  Setting Scaling Policies: Defining the desired, minimum, and maximum number of instances.
+-  Configuring Load Balancing and Health Checks: Load balancer is associated to the ASG.
+-  Setting up health checks to monitor instance health and ensure traffic is directed appropriately.
+   See image below for health check configuration:
+
+ ![alt text](image/Health-Check-Configuration.png)  
+
+-  Verifying the Auto Scaling Group: This has to do with Monitoring the EC2 instances, Ensuring that the Auto Scaling Group launches the desired number of  
+   instances, For this project i set my desired instances to 2, 1 as Minimum and 2 as Maximum. Also making sure that instances are distributed across the selected Zones.
+
+   After ASG has been setup successfully, it launch at least one EC2 intance and when the workload increase on the instance it automatically launch another instance making it 2 instances so as to handle the traffic request, and at downtime period it shutdown an instance automatically.
+
+The image below shows the health check status of our Target (EC2 Instance):
+
+![alt text](image/Health-Check.png)
+
+
+
+
+
+
+
+
+
+
+
