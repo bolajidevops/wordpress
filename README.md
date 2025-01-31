@@ -27,7 +27,7 @@ Steps:
 
 - Associate the private subnets with a route table that routes traffic to the NAT Gateway.
 
-See image bellow show the VPC resource map for the internet connectivities:
+ Image showing the VPC resource map for the internet connectivities:
 
 ![alt text](image/VPC-Resource-MAP.png)
 
@@ -61,7 +61,7 @@ Steps:
 
 - Installing Apache, MySQL, WordPress and PHP on the EC2 instance.
 
-Image shows how apached was installed on my wordpress EC2 instance:
+Image showing how Apache was installed on my wordpress EC2 instance:
 
 ![alt text](image/installing-appache-httpd.png)
 
@@ -154,7 +154,7 @@ Steps:
 
    After ASG has been setup successfully, it launch at least one EC2 intance and when the workload increase on the instance it automatically launch another instance making it 2 instances so as to handle the traffic request, and at downtime period it shutdown an instance automatically.
 
-The image below shows the health check status of our Target (EC2 Instance):
+The image below shows the health check status of my Target Group (EC2 Instance):
 
 ![alt text](image/Health-Check.png)
 
